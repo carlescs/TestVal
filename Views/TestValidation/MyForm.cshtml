@@ -1,0 +1,20 @@
+@model FormViewModel
+@{
+    ViewBag.Title="Form with validation";
+}
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
+
+<ul>
+    @foreach (var item in ViewBag.Strings)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<form asp-action="MyForm" method="POST">
+    <input type="text" class="form-control" asp-for="Name"/>
+    <span asp-validation-for="Name"></span>
+    <button type="submit">Send</button>
+</form>

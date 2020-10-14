@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/9c1b85f3-5c59-45af-bab0-f49e7adb52f5/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/testvalccs",
+    "appService.deploySubpath": "bin\\Debug\\netcoreapp3.1\\publish"
+}
