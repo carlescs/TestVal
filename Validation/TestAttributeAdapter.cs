@@ -17,6 +17,7 @@ namespace TestVal.Validation
         {
             MergeAttribute(context.Attributes, "data-val", "true");
             MergeAttribute(context.Attributes, "data-val-test", GetErrorMessage(context));
+            MergeAttribute(context.Attributes, "data-val-test-num", Attribute.NumUpper.ToString());
         }
     }
 
