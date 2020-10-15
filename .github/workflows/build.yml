@@ -20,7 +20,9 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: | 
+        dotnet build --configuration Release --no-restore
+        dotnet publish -c Release -o myapp 
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: Azure Login
@@ -33,4 +35,5 @@ jobs:
       with:
         # Name of the Azure Web App
         app-name: testvalccs
+        package: './myapp'
 
