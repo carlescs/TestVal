@@ -5,7 +5,7 @@ using TestVal.Util;
 namespace TestVal.Controllers{
     [Route("test")]
     public class TestValidationController:Controller{
-        private StringStore _store;
+        private readonly StringStore _store;
         public TestValidationController(StringStore store)
         {
             _store = store;
@@ -18,9 +18,14 @@ namespace TestVal.Controllers{
         }
 
         [HttpPost("my")]
-        public IActionResult MyForm(FormViewModel vm){
-            if(!ModelState.IsValid)
-            return View(vm);
+        public IActionResult MyForm(FormViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Strings = _store.strings;
+                return View(vm);
+            }
+
             _store.strings.Add(vm.Name);
             return RedirectToAction(nameof(MyForm));
         }
