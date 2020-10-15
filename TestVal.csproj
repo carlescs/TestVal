@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationInsightsResourceId>/subscriptions/9c1b85f3-5c59-45af-bab0-f49e7adb52f5/resourceGroups/appsvc_windows_centralus/providers/microsoft.insights/components/testvalccs</ApplicationInsightsResourceId>
+    <UserSecretsId>aee5e5fb-ef72-416f-9aa2-75859dd853ae</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.14.0" />
+  </ItemGroup>
 
 </Project>

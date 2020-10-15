@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2020-10-15T07:02:42.0302994Z"
+    },
+    "appInsights1": {
+      "restored": true,
+      "restoreTime": "2020-10-15T07:03:37.4202124Z"
+    }
+  },
+  "parameters": {
+    "appInsights1.subscriptionId": {
+      "Type": "subscription",
+      "Value": "9c1b85f3-5c59-45af-bab0-f49e7adb52f5"
+    },
+    "appInsights1.resourceGroupName": {
+      "Type": "resourceGroup",
+      "Value": "appsvc_windows_centralus"
+    }
+  }
+}
