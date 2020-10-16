@@ -1,4 +1,6 @@
+@using TestVal.Util
 @model FormViewModel
+@inject StringStore Store
 @{
     ViewBag.Title="Form with validation";
 }
@@ -7,7 +9,7 @@
 }
 
 <ul>
-    @foreach (var item in ViewBag.Strings)
+    @foreach (var item in Store.Strings)
     {
         <li>@item</li>
     }

@@ -13,7 +13,6 @@ namespace TestVal.Controllers{
 
         [HttpGet("my")]
         public IActionResult MyForm(){
-            ViewBag.Strings=_store.strings;
             return View();
         }
 
@@ -22,11 +21,9 @@ namespace TestVal.Controllers{
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Strings = _store.strings;
                 return View(vm);
             }
-
-            _store.strings.Add(vm.Name);
+            _store.Strings.Add(vm.Name);
             return RedirectToAction(nameof(MyForm));
         }
     }
