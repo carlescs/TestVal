@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace TestVal.Validation{
     public class TestAttribute : ValidationAttribute
@@ -10,12 +11,15 @@ namespace TestVal.Validation{
         {
             NumUpper = numUpper;
         }
+
+        public string ValidationMessage => ErrorMessage ?? "hello";
+
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var val = (string) value;
             return val.Count(char.IsUpper) >= NumUpper
                 ? ValidationResult.Success 
-                : new ValidationResult(ErrorMessage);
+                : new ValidationResult(ValidationMessage);
         }
     }
 }

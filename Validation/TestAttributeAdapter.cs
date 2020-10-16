@@ -7,11 +7,14 @@ namespace TestVal.Validation
 {
     public class TestAttributeAdapter:AttributeAdapterBase<TestAttribute>
     {
+        private readonly IStringLocalizer _stringLocalizer;
+
         public TestAttributeAdapter(TestAttribute attribute, IStringLocalizer stringLocalizer) : base(attribute, stringLocalizer)
         {
+            _stringLocalizer = stringLocalizer;
         }
 
-        public override string GetErrorMessage(ModelValidationContextBase validationContext) => Attribute.ErrorMessage;
+        public override string GetErrorMessage(ModelValidationContextBase validationContext) => _stringLocalizer[Attribute.ValidationMessage];
 
         public override void AddValidation(ClientModelValidationContext context)
         {
