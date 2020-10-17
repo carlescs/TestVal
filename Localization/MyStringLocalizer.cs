@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Security;
 using Microsoft.Extensions.Localization;
 
 namespace TestVal.Localization
@@ -12,8 +8,8 @@ namespace TestVal.Localization
     {
         private Dictionary<string,Dictionary<string,string>> translations=new Dictionary<string, Dictionary<string, string>>
         {
-            {"hello",new Dictionary<string, string>{{"en","Hola"},{"de","Adeu"}}},
-            {"second",new Dictionary<string, string>{{"en","Hola2"},{"de","Adeu2"}}}
+            {"hello",new Dictionary<string, string>{{"en","Hola"},{"de","<em>Adeu</em>"}}},
+            {"second",new Dictionary<string, string>{{"en","Hola2"},{"de","<strong>Adeu</strong>"}}}
         };
         public IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
         {

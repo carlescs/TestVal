@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,11 +34,13 @@ namespace TestVal
             services.AddLocalization();
             services.AddSingleton<StringStore>()
                 .AddSingleton<IValidationAttributeAdapterProvider, TestAttributeAdapterProvider>()
-                .AddSingleton<IStringLocalizerFactory,MyStringLocalizerFactory>();
+                .AddSingleton<IStringLocalizerFactory,MyStringLocalizerFactory>()
+                .AddSingleton<IHtmlLocalizerFactory,MyHtmlLocalizerFactory>();
             services.AddControllersWithViews().AddDataAnnotationsLocalization(setup =>
-            {
-                setup.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(type);
-            });
+                {
+                    setup.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(type);
+                })
+                .AddViewLocalization();
             services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"]);
         }
 
