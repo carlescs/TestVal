@@ -67,8 +67,8 @@ namespace TestVal
                     new CultureInfo("de")
                 };
                 options.DefaultRequestCulture=new RequestCulture("en");
-                options.AddInitialRequestCultureProvider(new QueryStringRequestCultureProvider()
-                    {QueryStringKey = "lang"});
+                options.RequestCultureProviders.OfType<QueryStringRequestCultureProvider>().First().QueryStringKey =
+                    "lang";
             });
             app.UseRouting();
 
