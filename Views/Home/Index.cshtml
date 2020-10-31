@@ -1,7 +1,9 @@
 ﻿@using TestVal.Controllers
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Microsoft.Extensions.Localization
+@using TestVal.Additional.Services
 @inject IHtmlLocalizer<HomeController> Localizer;
+@inject IStringProvider StringProvider
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -9,4 +11,6 @@
 <div class="text-center">
     <h1 class="display-4">@Localizer["hello"]</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    @StringProvider.GetString()
 </div>

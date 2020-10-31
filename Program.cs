@@ -20,7 +20,10 @@ namespace TestVal
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseSetting(
+                            WebHostDefaults.HostingStartupAssembliesKey,
+                            "TestVal.Additional")
+                        .UseStartup<Startup>();
                 });
     }
 }
